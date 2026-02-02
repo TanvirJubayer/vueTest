@@ -1,7 +1,10 @@
 
 <script setup>
 import { ref } from "vue";
-import Counter from "./components/counter.vue";
+import Counter from "./components/Counter.vue";
+import { RouterView } from "vue-router";
+// import Main from "./layouts/main.vue";
+import Main from "./layouts/main.vue";
 
   let Name="Masud";
   let Address= "Segun Bagicha, Dhaka";
@@ -19,30 +22,7 @@ import Counter from "./components/counter.vue";
 
 
 <template>
-  <h1>Hello, {{ Name }}</h1>
-  <p>Address: {{ Address }}</p>
-  <h1>Oyy... <span v-text="Name"></span> !!!</h1>
-  <h2 v-html="html"></h2>
-
-  <br><br>
-  <br>
-
-  <h3 v-if="active">Hashao Mahmud !</h3>
-  <h3 v-else>Mahmud, hashi kothay?</h3>
-  <button v-on:click="changeName">Change-Name</button>
-
-  <br><br>
-  <br><br>
-  <ol>
-    <li v-for="(student , i) in Students" :key="i">{{ student }}</li>
-  </ol>
-  <br><br>
-  <br>
-
-  <Counter/>
-  <br>
-  <br>
-  <Counter/>
+  <Main/>
 </template>
 
 

@@ -1,0 +1,7 @@
+{
+  "customers": [
+    { "id": 1, "name": "John Doe", "email": "john@example.com" },
+    { "id": 2, "name": "Jane Roe", "email": "jane@example.com" },
+    { "id": 3, "name": "Alice Smith", "email": "alice@example.com" }
+  ]
+}
