@@ -9,7 +9,7 @@
             </div>
             <div>
                 <label for="email">Email</label>
-                <input type="text" name="name" v-model="customer.email">
+                <input type="text" name="email" v-model="customer.email">
             </div>
             <div>
                 <label for="phone">Phone</label>
@@ -39,16 +39,15 @@
     })
 
     function handleCreate(){
-        axios.post(`${baseUrl}/customers`,{
-         customer              
-
-        })
+        axios.post(`${baseUrl}/customers`, customer)
         .then(res=>{
             console.log(res);
             router.push("/customers")
      
         })
-        .catch()
+        .catch(err=>{
+            console.error(err);
+        })
     }
 </script>
 

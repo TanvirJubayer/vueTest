@@ -9,7 +9,7 @@
                 <th>Email</th>
                 <th>Action</th>
             </tr>
-            <tr v-for="customer in customers" :key="customer.id">
+            <tr v-for="customer in searchCustomer" :key="customer.id">
                 <td>{{ customer.id }}</td>
                 <td>{{ customer.name }}</td>
                 <td>{{ customer.email }}</td>
@@ -35,7 +35,7 @@ import { computed, onMounted, ref } from 'vue';
                 let q = search.value.toLowerCase();
                 if(!q) return customers.value;
                 return customers.value.filter(customer=> {
-                    return customer.name.toLowerCase().includes(q) || customer.email
+                    return customer.name.toLowerCase().includes(q) || (customer.email && customer.email.toLowerCase().includes(q))
                 });
             })
 
@@ -43,9 +43,11 @@ import { computed, onMounted, ref } from 'vue';
                 axios.get(`${baseUrl}/customers`)
                 .then(res=>{
                     console.log(res.data.customers);
-                    customers.valu= res.data.customers;
+                    customers.value = res.data.customers;
                 })
-                .catch()
+                .catch(err=>{
+                    console.error(err);
+                })
             }
 
             onMounted(()=>{
